@@ -45,6 +45,31 @@
             android:text="open Barcode">
         </Button>
 
+        <Button
+            android:id="@+id/btnFaceDetectActivity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="open Face Detect Activity">
+        </Button>
+
+        <Button
+            android:id="@+id/btnLabelerActivity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="open Image label Activity">
+        </Button>
+
+        <Button
+            android:id="@+id/btnTextRecogActivity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="open Text Recognition Activity">
+        </Button>
+
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

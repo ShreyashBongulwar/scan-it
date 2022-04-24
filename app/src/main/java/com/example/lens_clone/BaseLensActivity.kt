@@ -2,6 +2,8 @@ package com.example.lens_clone
 
 import android.Manifest
 import android.content.pm.PackageManager
+import android.os.Bundle
+import android.os.PersistableBundle
 import android.util.Log
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -13,7 +15,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 
 import com.example.lens_clone.barcode.BarcodeActivity
-import kotlinx.android.synthetic.main.activity_barcode.*
+import kotlinx.android.synthetic.main.activity_lens.*
 
 abstract class BaseLensActivity : AppCompatActivity() {
 
@@ -26,7 +28,7 @@ abstract class BaseLensActivity : AppCompatActivity() {
     abstract val imageAnalyzer:ImageAnalysis.Analyzer
 
 
-    protected fun askCameraPermission() {
+    private fun askCameraPermission() {
         ActivityCompat.requestPermissions(
             this,
             arrayOf(Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE),
@@ -34,7 +36,19 @@ abstract class BaseLensActivity : AppCompatActivity() {
         )
     }
 
-     protected fun startCamera() {
+    abstract fun startScanner()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_lens)
+        askCameraPermission()
+
+        btnstartScanner.setOnClickListener {
+            startScanner()
+        }
+    }
+
+    private fun startCamera() {
         val cameraProviderFuture = ProcessCameraProvider.getInstance(this)
         cameraProviderFuture.addListener(
             Runnable {

@@ -9,13 +9,13 @@ import com.google.mlkit.vision.common.InputImage
 
 class BarcodeAnalyzer: ImageAnalysis.Analyzer
 {
-    val scanner=BarcodeScanning.getClient()
+    var scanner=BarcodeScanning.getClient()
     @SuppressLint("UnsafeOptInUsageError")
     override fun analyze(imageProxy: ImageProxy)
     {
         Log.d("BARCODE","image analysed")
         imageProxy.image?.let{
-            val inputImage=InputImage.fromMediaImage(
+            var inputImage=InputImage.fromMediaImage(
                 it,
                 imageProxy.imageInfo.rotationDegrees
             )

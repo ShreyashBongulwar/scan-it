@@ -17,6 +17,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Lens_Clone">
         <activity
+            android:name=".facedetect.FaceDetectActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".textrecog.TextRecognitionActivity"
+            android:exported="true" />
+
+
+        <activity
+            android:name=".imagelaber.ImageLabelingActivity"
+            android:exported="true" />
+
+        <activity
             android:name=".barcode.BarcodeActivity"
             android:exported="true" />
         <activity

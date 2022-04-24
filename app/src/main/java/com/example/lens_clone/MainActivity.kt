@@ -6,6 +6,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
 import com.example.lens_clone.barcode.BarcodeActivity
+import com.example.lens_clone.facedetect.FaceDetectActivity
+import com.example.lens_clone.facedetect.FaceDetectAnalyzer
+import com.example.lens_clone.imagelaber.ImageLabelingActivity
+import com.example.lens_clone.textrecog.TextRecognitionActivity
 import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
 
@@ -29,6 +33,18 @@ class MainActivity : AppCompatActivity() {
 
         btnBarcodeActivity.setOnClickListener {
             startActivity(Intent(this,BarcodeActivity::class.java))
+        }
+
+        btnFaceDetectActivity.setOnClickListener {
+            startActivity(Intent(this, FaceDetectActivity::class.java))
+        }
+
+        btnLabelerActivity.setOnClickListener {
+            startActivity(Intent(this, ImageLabelingActivity::class.java))
+        }
+
+        btnTextRecogActivity.setOnClickListener {
+            startActivity(Intent(this, TextRecognitionActivity::class.java))
         }
     }
 
